@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "../components/ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "Developer - Haggen It",
+    description:
+      "Desarrollador de diferentes aplicaciones del lado del servidor como del cliente, usando tecnologías como Angular, Python, PHP en combinación con GCP.",
+  },
+  {
+    date: "Septiembre 2022",
+    title: "Fullstack Developer - Neuroimágenes",
+    description:
+      "Responsable de la creación de la página web desde 0%, como practicante, me desempeñé como desarrollador de frontend y backend, así como administrador de las redes sociales de la empresa",
+    link: "https://neuroimagenes.com/inicio",
+    redirection: '#neuro-project'
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
