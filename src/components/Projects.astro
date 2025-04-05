@@ -1,11 +1,20 @@
 ---
 import Angular from "../assets/icons/Angular.astro";
 import GitHub from "../assets/icons/GitHub.astro";
+import Javascript from "../assets/icons/Javascript.astro";
+import HTML from "../assets/icons/HTML.astro";
+import CSS from "../assets/icons/CSS.astro";
+import Python from "../assets/icons/Python.astro";
 import Link from "../assets/icons/Link.astro";
 import Php from "../assets/icons/Php.astro";
 import LinkButton from "./LinkButton.astro";
 
 const TAGS = {
+  PYTHON: {
+    name: "Python",
+    class: "bg-white text-black",
+    icon: Python,
+  },
   ANGULAR: {
     name: "Angular",
     class: "bg-white text-black",
@@ -16,8 +25,56 @@ const TAGS = {
     class: "bg-black text-white-500",
     icon: Php,
   },
+  JS: {
+    name: "JavaScript",
+    class: "bg-white text-black",
+    icon: Javascript,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-white text-black",
+    icon: HTML,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-white text-black",
+    icon: CSS,
+  },
 };
+
 const PROJECTS = [
+{
+    title: "Pricing Pro",
+    description:
+      "Plataforma web para la gestión de precios, gestión de usuarios por roles, gestión de permisos y analítica dinámica.",
+    image: "src/assets/img/visioner.webp",
+    tags: [TAGS.ANGULAR],
+    year: "2025",
+  },
+  {
+    title: "Visioner",
+    description:
+      "Basado en Planning Pro, para el mismo cliente pero con diferente interfaz y línea gráfica.",
+    image: "src/assets/img/visioner.webp",
+    tags: [TAGS.ANGULAR],
+    year: "2024",
+  },
+  {
+    title: "Planning Pro",
+    description:
+      "Plataforma web para la gestión de cementos, gestión de usuarios por roles, gestión de permisos y analítica dinámica.",
+    image: "src/assets/img/planning-pro.webp",
+    tags: [TAGS.ANGULAR, TAGS.PYTHON],
+    year: "2022 - 2023",
+  },
+  {
+    title: "Autenticación y Gestión",
+    description:
+      "He trabajado en diferentes proyectos de autenticación para la UGPP, Team Foods, además de implementar diferentes funcionalidades que permiten la gestión de archivos desde GCP",
+    image: "src/assets/img/auth-ilustration.jpeg",
+    tags: [TAGS.PYTHON, TAGS.HTML, TAGS.CSS, TAGS.JS],
+    year: "2022 - 2023",
+  },
   {
     title: "Neuroimágenes - IPS",
     description:
@@ -25,6 +82,7 @@ const PROJECTS = [
     link: "https://neuroimagenes.com/inicio",
     image: "src/assets/img/neuroimagenes.webp",
     tags: [TAGS.ANGULAR, TAGS.PHP],
+    year: "2022",
   },
   {
     title: "Huellitas Solidarias",
@@ -34,13 +92,14 @@ const PROJECTS = [
     github: "https://github.com/manueljuan123/huellitas-solidarias",
     image: "src/assets/img/huellitas-solidarias.webp",
     tags: [TAGS.ANGULAR],
+    year: "2022",
   },
 ];
 ---
 
 <div class="flex flex-col gap-y-16" id="neuro-project">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    PROJECTS.map(({ image, title, description, tags, link, github, year }) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -72,7 +131,8 @@ const PROJECTS = [
             </ul>
 
             <div class="mt-2 text-white-700 dark:text-gray-400">
-              {description}
+              {description} <br />
+              <span class="text-amber-400">{year}</span>
             </div>
             <footer class="flex items-end justify-start mt-4 gap-x-4">
               {github && (
